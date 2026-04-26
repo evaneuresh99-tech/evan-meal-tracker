@@ -290,7 +290,7 @@ export default function App() {
 
       // NOTE FOR VERCEL: Replace the fetch below with a call to your /api/scan endpoint
       // e.g. fetch('/api/scan', { method: 'POST', body: JSON.stringify({ image: b64, mimeType: file.type }) })
-      const resp = await fetch("https://api.anthropic.com/v1/messages", {
+      const resp = await fetch("/api/scan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ model: "claude-sonnet-4-20250514", max_tokens: 1500, messages: [{ role: "user", content: [{ type: "image", source: { type: "base64", media_type: file.type, data: b64 } }, { type: "text", text: prompt }] }] }),
